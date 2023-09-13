@@ -5,5 +5,4 @@ const server = http.createServer((request, response)=> {
     response.end("<h1>Hello word<h1>")
 })
 
-
 server.listen(3000,()=>{console.log("Server started at http:\\localhost:3000")})
