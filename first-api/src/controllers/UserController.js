@@ -1,4 +1,4 @@
-const users = require("../mocks/users")
+let users = require("../mocks/users")
 
 module.exports = {
     listUsers(request, response) {
@@ -11,9 +11,7 @@ module.exports = {
             return a.id > b.id ? 1 : -1
         })
 
-
-        response.writeHead(200, { "Content-Type": "application\json" })
-        response.end(JSON.stringify(sordtedUser))
+        return response.send(200, sordtedUser)
     },
     getUserById(request, response) {
 
@@ -22,13 +20,59 @@ module.exports = {
         const user = users.find((userObj) => userObj.id === Number(id))
 
         if (user) {
-            response.writeHead(200, { "Content-Type": "application\json" })
-            response.end(JSON.stringify(user))
-        } else {
-            response.writeHead(400, { "Content-Type": "application\json" })
-            response.end(JSON.stringify({ error: "User not found" }))
+            return response.send(200, user)
+
+        }
+        return response.send(400, { error: "User not found" })
+    },
+    updateUser(request, response) {
+        const { id } = request.params
+        const { name } = request.body
+
+        const userExist = users.find((userObj) => userObj.id === Number(id))
+
+        if (!userExist) {
+            return response.send(400, { error: "User not found" })
         }
 
+        users = users.map((user) => {
+            if (user.id === Number(id)) {
+                return {
+                    ...user,
+                    name
+                }
+            }
+            return user
+        })
 
+        return response.send(200, { created: true })
+
+
+    },
+    deleteUser(request, response) {
+        const { id } = request.params
+
+        const user = users.filter((userObj) => userObj.id !== Number(id))
+
+        if (user) {
+            users = users.filter((userObj) => userObj.id !== Number(id))
+            return response.send(204, { deleted: true })
+
+        }
+        return response.send(400, { error: "User not found" })
+    },
+    createUser(request, response) {
+        const { body } = request
+
+        const lastUserId = users[users.length - 1].id
+
+        const user = {
+            id: lastUserId + 1,
+            name: body.name
+        }
+
+        users.push(user)
+
+        response.send(200, user)
     }
 }
