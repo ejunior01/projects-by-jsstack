@@ -1,26 +1,26 @@
 module.exports = {
-  'env': {
-    'es2021': true,
-    'node': true,
+  env: {
+    es2021: true,
+    node: true
   },
-  'extends': 'google',
-  'overrides': [
+  extends: 'standard',
+  overrides: [
     {
-      'env': {
-        'node': true,
+      env: {
+        node: true
       },
-      'files': [
-        '.eslintrc.{js,cjs}',
+      files: [
+        '.eslintrc.{js,cjs}'
       ],
-      'parserOptions': {
-        'sourceType': 'script',
-      },
-    },
+      parserOptions: {
+        sourceType: 'script'
+      }
+    }
   ],
-  'parserOptions': {
-    'ecmaVersion': 'latest',
-    'sourceType': 'module',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module'
   },
-  'rules': {
-  },
-};
+  rules: {
+  }
+}
