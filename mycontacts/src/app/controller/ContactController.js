@@ -1,12 +1,20 @@
-
+import ContactsRepository from '../repositories/ContactsRepository.js'
 
 class ContactController {
-  index(request, response) {
-    response.send('Hello uffa');
+  async index(request, response) {
+    const contacts = await ContactsRepository.findAll()
+    response.json(contacts)
   }
 
-  show(request, response) {
+  async show(request, response) {
+    const { id } = request.params
+    const contact = await ContactsRepository.findById(id)
 
+    if (!contact) {
+      return response.status(404).json({ "error": "contact not found" })
+    }
+
+    response.json(contact)
   }
 
   store(request, response) {
@@ -17,9 +25,18 @@ class ContactController {
 
   }
 
-  delete(request, response) {
+  async delete(request, response) {
+    const { id } = request.params
+    const contact = await ContactsRepository.findById(id)
 
+    if (!contact) {
+      return response.status(404).json({ "error": "contact not found" })
+    }
+
+    await ContactsRepository.delete(id)
+
+    return response.sendStatus(204)
   }
 }
 
-export default new ContactController();
+export default new ContactController()
