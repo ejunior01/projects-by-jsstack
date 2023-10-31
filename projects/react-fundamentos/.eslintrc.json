@@ -1,6 +1,12 @@
 {
-
-    "rules": {
-        "react/no-deprecated":"off"
-    }
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "airbnb-base",
+    "plugin:react/all"
+  ],
+  "rules": {
+    "react/no-deprecated": "off"
+  }
 }
