@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "lint": "eslint --fix"
+  },
   "devDependencies": {
     "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^18.1.0",

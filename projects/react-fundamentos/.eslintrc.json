@@ -1,6 +1,28 @@
 {
-
-    "rules": {
-        "react/no-deprecated":"off"
+  "settings": {
+    "react": {
+      "version": "17.0.2"
     }
+  },
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "airbnb-base",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "react/jsx-indent": "off",
+    "react/jsx-no-literals": "off",
+    "react/no-deprecated": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ]
+  }
 }
