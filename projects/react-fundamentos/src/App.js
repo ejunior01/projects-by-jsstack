@@ -12,6 +12,7 @@ export default function App() {
       subtitle: 'Subtitle#01',
       likes: 10,
       read: true,
+      remove: false,
     },
     {
       id: Math.random(),
@@ -19,6 +20,7 @@ export default function App() {
       subtitle: 'Subtitle#02',
       likes: 50,
       read: false,
+      remove: false,
     },
     {
       id: Math.random(),
@@ -26,6 +28,7 @@ export default function App() {
       subtitle: 'Subtitle#03',
       likes: 30,
       read: true,
+      remove: false,
     },
     {
       id: Math.random(),
@@ -33,6 +36,7 @@ export default function App() {
       subtitle: 'Subtitle#04',
       likes: 10,
       read: false,
+      remove: false,
     },
   ]);
 
@@ -47,10 +51,9 @@ export default function App() {
       },
     ]);
   }
-
+  /* eslint max-len: ["error", { "code": 110 }] */
   function handleRemovePost(postId) {
-    setPosts((prevState) => prevState.filter((post) => post.id !== postId));
-    console.log(postId);
+    setPosts((prevState) => prevState.map((post) => (post.id === postId ? { ...post, remove: true } : post)));
   }
 
   return (
@@ -70,6 +73,7 @@ export default function App() {
             title: post.title,
             subtitle: post.subtitle,
             read: post.read,
+            remove: post.remove,
           }}
         />
       ))}
