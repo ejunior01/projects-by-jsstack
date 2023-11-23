@@ -1,5 +1,6 @@
 {
   "projects/**/*{.js,.jsx,.ts,.tsx}": [
-    "prettier --write","eslint --fix"
+    "prettier --write",
+    "eslint --fix"
   ]
 }
