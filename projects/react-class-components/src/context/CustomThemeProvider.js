@@ -1,4 +1,4 @@
-import React, { useState, useMemo, createContext } from 'react';
+import React, { createContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import themes from '../styles/Theme';
@@ -8,23 +8,33 @@ export const CustomThemeContext = createContext({
   onToggleTheme: () => {},
 });
 
-export function CustomThemeProvider({ children }) {
-  const [theme, setTheme] = useState('dark');
+export class CustomThemeProvider extends React.Component {
+  constructor(props) {
+    super(props);
 
-  function handleToggleTheme() {
-    setTheme((prevStat) => (prevStat === 'dark' ? 'ligth' : 'dark'));
+    this.state = {
+      theme: 'dark',
+    };
   }
 
-  const currentTheme = useMemo(() => themes[theme] || themes.dark, [theme]);
+  render() {
+    const { theme } = this.state;
 
-  return (
-    <CustomThemeContext.Provider
-      value={{
-        theme,
-        onToggleTheme: handleToggleTheme,
-      }}
-    >
-      <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>
-    </CustomThemeContext.Provider>
-  );
+    return (
+      <CustomThemeContext.Provider
+        value={{
+          theme,
+          onToggleTheme: () => {
+            this.setState((prevStat) => ({
+              theme: prevStat.theme === 'dark' ? 'ligth' : 'dark',
+            }));
+          },
+        }}
+      >
+        <ThemeProvider theme={themes[theme] || themes.dark}>
+          {this.props.children}
+        </ThemeProvider>
+      </CustomThemeContext.Provider>
+    );
+  }
 }

@@ -5,6 +5,7 @@ import { Container } from './styles';
 
 export default function Header() {
   const { theme, onToggleTheme } = useContext(CustomThemeContext);
+
   return (
     <Container>
       <h1>JStack&apos;s Blog</h1>
