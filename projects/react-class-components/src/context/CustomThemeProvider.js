@@ -15,6 +15,14 @@ export class CustomThemeProvider extends React.Component {
     this.state = {
       theme: 'dark',
     };
+
+    this.handleToogleTheme = this.handleToogleTheme.bind(this);
+  }
+
+  handleToogleTheme() {
+    this.setState((prevStat) => ({
+      theme: prevStat.theme === 'dark' ? 'ligth' : 'dark',
+    }));
   }
 
   render() {
@@ -24,11 +32,7 @@ export class CustomThemeProvider extends React.Component {
       <CustomThemeContext.Provider
         value={{
           theme,
-          onToggleTheme: () => {
-            this.setState((prevStat) => ({
-              theme: prevStat.theme === 'dark' ? 'ligth' : 'dark',
-            }));
-          },
+          onToggleTheme: this.handleToogleTheme,
         }}
       >
         <ThemeProvider theme={themes[theme] || themes.dark}>
