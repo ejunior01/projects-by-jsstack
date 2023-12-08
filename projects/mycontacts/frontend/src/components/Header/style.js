@@ -19,13 +19,13 @@ export const InputSearchContainer = styled.div`
     border: none;
     padding: 0 16px;
 
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.color.white};
 
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
     outline: 0;
 
     &::placeholder {
-      color: #bcbcbc;
+      color: ${({ theme }) => theme.color.gray[200]};
     }
   }
 `;
