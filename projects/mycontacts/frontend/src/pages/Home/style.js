@@ -4,11 +4,42 @@ export const Container = styled.div`
   margin-top: 32px;
 `;
 
+export const InputSearchContainer = styled.div`
+  width: 100%;
+  margin-top: 48px;
+  background-color: ${({ theme }) => theme.color.white};
+  border-radius: 4px;
+  input {
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    border: none;
+
+    padding: 0 16px;
+
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+    outline-color: #646cff;
+
+    transition: all 0.25s ease-in-out;
+
+    &:focus,
+    &:hover,
+    &:focus-visible {
+      outline: 2px auto #646cff;
+    }
+
+    &::placeholder {
+      color: ${({ theme }) => theme.color.gray[200]};
+    }
+  }
+`;
+
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 24px;
+  margin-top: 32px;
 
   strong {
     font-size: 24px;
@@ -64,6 +95,7 @@ export const Card = styled.div`
   border-radius: 4px;
   padding: 16px;
   background-color: ${({ theme }) => theme.color.white};
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.04);
 
   & + & {
     margin-top: 16px;
