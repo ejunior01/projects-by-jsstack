@@ -20,8 +20,15 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Sora', sans-serif;
 }
 
+button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
 body {
-  background-color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.blue[50]};
   font-size:1rem;
+  color: ${({ theme }) => theme.color.gray[900]};
 }
 `;

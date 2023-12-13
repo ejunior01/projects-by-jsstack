@@ -1,6 +1,6 @@
 export default {
   color: {
-    white: '#F6F5FC',
+    white: '#fff',
     blue: {
       50: '#F6F5FC',
       100: '#E0E3FF',
