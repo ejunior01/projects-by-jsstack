@@ -9,6 +9,7 @@ import {
 import arrow from '../../assets/icons/arrow.svg';
 import edit from '../../assets/icons/edit.svg';
 import trash from '../../assets/icons/trash.svg';
+import { Link } from 'react-router-dom';
 
 export function Home() {
   return (
@@ -19,7 +20,7 @@ export function Home() {
 
       <Header>
         <strong>3 contatos</strong>
-        <a href="/">Novo contato</a>
+        <Link to="/new">Novo contato</Link>
       </Header>
 
       <ListContainer>
