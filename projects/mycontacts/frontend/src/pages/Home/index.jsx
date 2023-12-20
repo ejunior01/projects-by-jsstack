@@ -4,6 +4,7 @@ import {
   Card,
   ListContainer,
   InputSearchContainer,
+  CardList,
 } from './style';
 
 import arrow from '../../assets/icons/arrow.svg';
@@ -31,62 +32,44 @@ export function Home() {
           </button>
         </header>
 
-        <Card>
-          <div className="info">
-            <div className="contact-name">
-              <strong>Edvan Ribeiro</strong>
-              <small>Instragram</small>
+        <CardList>
+          <Card>
+            <div className="info">
+              <div className="contact-name">
+                <strong>Edvan Ribeiro</strong>
+                <small>Instragram</small>
+              </div>
+              <span>ejunior01@github.com</span>
+              <span>(011) 99999-9999</span>
             </div>
-            <span>ejunior01@github.com</span>
-            <span>(011) 99999-9999</span>
-          </div>
-          <div className="actions">
-            <a href="/">
-              <img src={edit} alt="Edit" />
-            </a>
-            <button type="button">
-              <img src={trash} alt="Delete" />
-            </button>
-          </div>
-        </Card>
-
-        <Card>
-          <div className="info">
-            <div className="contact-name">
-              <strong>Edvan Ribeiro</strong>
-              <small>Instragram</small>
+            <div className="actions">
+              <Link to="/edit/1234">
+                <img src={edit} alt="Edit" />
+              </Link>
+              <button type="button">
+                <img src={trash} alt="Delete" />
+              </button>
             </div>
-            <span>ejunior01@github.com</span>
-            <span>(011) 99999-9999</span>
-          </div>
-          <div className="actions">
-            <a href="/">
-              <img src={edit} alt="Edit" />
-            </a>
-            <button type="button">
-              <img src={trash} alt="Delete" />
-            </button>
-          </div>
-        </Card>
-
-        <Card>
-          <div className="info">
-            <div className="contact-name">
-              <strong>Edvan Ribeiro</strong>
-              <small>Instragram</small>
+          </Card>
+          <Card>
+            <div className="info">
+              <div className="contact-name">
+                <strong>Edvan Ribeiro</strong>
+                <small>Instragram</small>
+              </div>
+              <span>ejunior01@github.com</span>
+              <span>(011) 99999-9999</span>
             </div>
-            <span>ejunior01@github.com</span>
-            <span>(011) 99999-9999</span>
-          </div>
-          <div className="actions">
-            <a href="/">
-              <img src={edit} alt="Edit" />
-            </a>
-            <button type="button">
-              <img src={trash} alt="Delete" />
-            </button>
-          </div>
-        </Card>
+            <div className="actions">
+              <Link to="/edit/1234">
+                <img src={edit} alt="Edit" />
+              </Link>
+              <button type="button">
+                <img src={trash} alt="Delete" />
+              </button>
+            </div>
+          </Card>
+        </CardList>
       </ListContainer>
     </Container>
   );

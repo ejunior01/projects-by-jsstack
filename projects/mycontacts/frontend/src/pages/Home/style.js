@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 32px;
+  margin: 32px 0;
 `;
 
 export const InputSearchContainer = styled.div`
@@ -87,6 +87,8 @@ export const ListContainer = styled.div`
     }
   }
 `;
+
+export const CardList = styled.div``;
 
 export const Card = styled.div`
   display: flex;

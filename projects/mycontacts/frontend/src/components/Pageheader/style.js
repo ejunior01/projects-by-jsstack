@@ -20,5 +20,6 @@ export const Container = styled.header`
   h2 {
     font-size: 24px;
     font-weight: bold;
+    margin: 8px 0;
   }
 `;
